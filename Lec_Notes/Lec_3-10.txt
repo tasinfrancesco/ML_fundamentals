@@ -28,3 +28,78 @@ Typical diagnostics:
 - Reconstruction error (outlier detection)
 - reward/learning curves (RL)
 
+
+
+#Intersting dataset
+MNIST dataset is a dataset of handwritten digits (60'000 training, 10'000 test images)
+
+
+## LOSS AND RISK
+- Ground truth : X, Y
+- Prediction : y^ = f(x)
+- Loss : l(y^, y) >=0
+examples: squared (y^-y)**2, absolute |y^-y|, zero-one 1[y^ != y]
+
+- Risk : R(f) = E[l(f(X), Y)] (averaged over all data)
+- Empirical risk: R^_n(f) = 1/n * sum(l(f(x_i), y_i))
+
+THE GENERAL PRACTICE is minimising Empirical risk on training data, then verify on validation/test data
+
+
+## BASELINE models ?????????
+
+Example: let's take a simple model (prediciton is constant c), and minimise it with a derivative
+d/dc (1/n sum(c-y_i)**2) = 2/n (nc - sum(y_i)) which is 0 at c = mean (y_i)
+the absolute value can be shown to be minimum at the median
+
+
+## Overfitting and underfitting
+
+Error as function of model complexity tends to show that 
+1) error is large for models that are too complex or not enough
+2) variance increases with complexity (overfitting)
+3) bias increases with simplicity (underfitting)
+
+
+Underfitting: high train error and test error
+Overfitting: low train error, high test error
+
+- Bias: error from erroneous assumptions 
+- Variance: well, ... variance
+
+
+## Leakage!! (when splitting data)
+- Preprocessing L. : Scaling (e.g., normalising variables) computed on full data
+- Target L. : Features created with post-outcome information (use validation data for hyperparameters)
+- Duplicates/groups : the same sample in both train and validation
+- Temporal L. : Shuffling time series, instead split chronologically. Issue is e.g., if you train using "future" data
+- Test set creep : trying many pipelines while watching the test metric ???
+
+
+----
+we talked abt more data generated
+we talked about Moore's law
+----
+
+## Update on Units
+
+Shannon's entropy (good estimation of outcome in variable x when observed)
+????
+H_b(X) = -E[log_b(P(X))] = sum(P_i*log_b*(1/P_i) = -sum(P_i*log_b(P_i))
+
+????? chat about how much information is needed to store info, and surprising information
+
+
+## Fourier transform
+F(f): nu->f^(nu) = integral(f(t)e**-(i2pi*nu*t)dt) where nu is the frequency 
+f(x) = F**-1(f^(x)) = 1/2pi integral(f^(xi)*e**(i*xi*x))
+
+for a periodical signal (e.g., sound, due to our perceptual limitations) we can bound the spectrum of the frequencies
+
+
+Nyquist-Shannon theorem ???
+if you have scattered signal (e.g., music), you can change a continuous signal into a digital signal that is twice the frequency of the bound ?????
+
+## if you don't know what's happening in a dataset, HISTOGRAMS!!
+
+
