@@ -1,0 +1,30 @@
+
+#Supervised learning means to learn a mapping
+
+
+from INPUTS/FEATURES to OUTPUTS/LABELS
+discrimination != Classification != regression 
+
+We have different models with different parameters
+
+Typical metrics:
+- Accuracy (classification)
+- Mean Avg Error, Root Mean Square Error (RMSE) (regression)
+
+
+
+#Unsupervised = learning structure directly from X data
+
+Examples:
+- clustering
+- dimensionality reduction
+- outlier detection
+- time series/NLP/generative (prediction of next text token)
+- RL (next move to win)
+
+Typical diagnostics:
+- Silhouette score (clustering)
+- Explained Variance (dim. red.)
+- Reconstruction error (outlier detection)
+- reward/learning curves (RL)
+
